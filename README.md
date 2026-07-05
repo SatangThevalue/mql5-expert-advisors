@@ -19,6 +19,19 @@ This repository contains fully functional MQL5 Expert Advisor (EA) clones and te
 - **Target Asset:** XAUUSD (Gold)
 - **Key Features:** **Prop Firm Ready**. Strictly NO Grid, NO Martingale. Uses Dual Take Profit (Partial Close), Break-Even shielding, and Adaptive Trailing Stop.
 
+### 4. `Ultimate_PropFirm_EA.mq5`
+- **Strategy:** Asian Session Range Breakout + Trend Following
+- **Target Asset:** XAUUSD, BTCUSD, US30
+- **Key Features:** **The Ultimate Synergy**. Combines features from all major commercial bots. Features Daily Drawdown Limit, Friday Close, ATR News Filter, and Trade Randomization (to avoid Prop Firm behavioral copying bans).
+
+## 🧩 Modular Components (For Custom EA Building)
+
+To facilitate future development, the core mechanics have been extracted into independent, plug-and-play modules:
+
+- **`Mod_RiskProtector.mq5`:** A standalone utility module handling Risk Management. Includes Daily Drawdown limiters, Friday auto-close, and automated Break-Even logic. Can be run alongside manual trading to protect equity.
+- **`Mod_NewsFilter.mq5`:** A volatility-based news filter. Instead of relying on unreliable web-scraped calendars, it uses ATR Spike detection to pause trading during macroeconomic shocks.
+- **`Mod_GridRecovery.mq5`:** An advanced "Selective Grid" module. Unlike dangerous traditional grids, it only opens averaging positions if both the Pip distance and an RSI confirmation condition are met, then calculates the break-even average price for a group exit.
+
 ## 🛡️ Core Architecture
 
 All EAs in this repository share a professional-grade execution loop:
